@@ -1,0 +1,70 @@
+# Training Configuration for Train Repeat Project
+training:
+  # Model paths - provide absolute or relative paths to your models
+  # Example: /path/to/models/Qwen2.5-7B-Instruct or ../models/Qwen2.5-7B-Instruct
+  main_model_path: "Qwen2.5-7B-Instruct"  # Update with your model path
+  embedding_model_path: "Qwen3-Embedding-0.6B"  # Update with your embedding model path
+  
+  # Training parameters
+  w_repeat: -0.05
+  beta: 0.04
+  all_steps: 200
+  train_batch_size: 2
+  Q_batch_size: 5
+  num_pre_Q: 8
+  gen_update_steps: 16
+  save_steps: 20
+  clip_param: 0.2
+  
+  # Output directory for experiment results
+  output_root: "./experiments"  # Directory where all outputs will be saved
+  compute_gen_logps: true
+  
+  # Server settings
+  ref_server: "http://localhost:59875"
+
+# DeepSpeed configuration
+deepspeed:
+  train_micro_batch_size_per_gpu: 2
+  gradient_accumulation_steps: 4
+  optimizer:
+    type: "AdamW"
+    params:
+      lr: 1e-6
+  fp16:
+    enabled: true
+  zero_optimization:
+    stage: 2
+    allgather_partitions: true
+    allgather_bucket_size: 2e8
+    overlap_comm: true
+    reduce_scatter: true
+    reduce_bucket_size: 2e8
+    contiguous_gradients: true
+    stage3_gather_16bit_weights_on_model_save: true
+    offload_optimizer:
+      device: "cpu"
+
+# Evaluation configuration
+evaluation:
+  tasks: "gsm8k"
+  batch_size: "auto"
+  # Root directory where experiments are saved, for evaluation scripts
+  experiments_root: "./experiments"  # Same as training output_root
+
+# MLP Pipeline configuration
+mlp_pipeline:
+  hidden_dim: 32
+  prefix_tokens: 32
+  remove_strategy: "truncate_and_continue"  # or "terminate"
+  
+# Environment settings
+# These are typically set via environment variables, but can be specified here
+# Example:
+# hf_home: "/path/to/your/.cache/huggingface"
+# hf_hub_cache: "/path/to/your/.cache/huggingface/hub"
+# hf_datasets_cache: "/path/to/your/.cache/huggingface/datasets"
+environment:
+  hf_home: null
+  hf_hub_cache: null
+  hf_datasets_cache: null

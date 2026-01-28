@@ -1,0 +1,33 @@
+# Core Dependencies
+torch
+transformers
+datasets
+sentence-transformers
+safetensors
+sentencepiece
+tokenizers
+
+# Model Serving & Inference
+vllm
+openai
+
+# Training Infrastructure
+deepspeed
+accelerate
+
+# Evaluation Framework
+# lm-eval
+
+# Math Utilities
+math-verify
+sympy
+
+# Data Processing
+pandas
+numpy
+jsonlines
+tqdm
+
+# Visualization (Optional)
+matplotlib
+seaborn
