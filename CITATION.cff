@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the Echoes as Anchors paper."
+title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
+type: conference-paper
+authors:
+  - family-names: Hao
+    given-names: Zhuoyuan
+  - family-names: Li
+    given-names: Zhuo
+  - family-names: Li
+    given-names: Wu
+  - family-names: Liu
+    given-names: Fangming
+  - family-names: Zhang
+    given-names: Min
+  - family-names: Li
+    given-names: Jing
+conference:
+  name: "The Fourteenth International Conference on Learning Representations"
+  acronym: "ICLR"
+year: 2026
+repository-code: "https://github.com/hhh2210/echoes-as-anchors"
+url: "https://openreview.net/forum?id=vndn1Wrult"
+keywords:
+  - LLM reasoning
+  - Echo of Prompt
+  - attention refocusing
+  - echoic prompting
+  - chain-of-thought
+  - probabilistic analysis

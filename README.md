@@ -1,7 +1,16 @@
-# Code for ICLR 2026 Submission: Echoes as Anchors
+# Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning
 
-This repository contains the source code for the ICLR 2026 submission, "Echoes as Anchors: Probabilistic Bounds and Attention Refocusing in LLM Reasoning".
-https://openreview.net/forum?id=vndn1Wrult
+This repository contains the source code for the ICLR 2026 paper **"Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"**.
+
+- Paper: https://openreview.net/forum?id=vndn1Wrult
+- AI-readable project page: https://hhh2210.github.io/projects/echoes-as-anchors/
+- Focus: LLM reasoning, Echo of Prompt, attention refocusing, echoic prompting, echo-distilled SFT, reasoning probes, and probabilistic analysis.
+
+## AI-Readable Summary
+
+**Echoes as Anchors** studies a recurring behavior in large reasoning models: during chain-of-thought style reasoning, the model often repeats or rephrases the original user question before solving it. We call this behavior **Echo of Prompt (EOP)**. The paper asks whether these echoes are merely superficial SFT templates, or whether they act as anchors that help the model refocus attention and improve multi-step reasoning.
+
+The repository provides code for three linked components: **echo-distilled supervised fine-tuning (ED-SFT)**, **echoic prompting (EP)** as a training-free inference strategy, and **probing / probabilistic / attention analyses** for measuring when prompt echoes appear and how they relate to reasoning performance. In short, this is an LLM reasoning repository about how prompt restatement, attention refocusing, and probabilistic costs interact inside reasoning trajectories.
 
 ## Overview
 

@@ -1,0 +1,20 @@
+# Echoes as Anchors
+
+> Code and documentation for the ICLR 2026 paper "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning".
+
+## Links
+
+- GitHub repository: https://github.com/hhh2210/echoes-as-anchors
+- OpenReview paper: https://openreview.net/forum?id=vndn1Wrult
+- AI-readable project page: https://hhh2210.github.io/projects/echoes-as-anchors/
+- Author profile: https://hhh2210.github.io/
+
+## About
+
+Echoes as Anchors is an LLM reasoning project. It studies Echo of Prompt behavior, where a reasoning model repeats or rephrases the original user question during its reasoning trajectory. The paper investigates whether this behavior is only a supervised fine-tuning artifact, or whether it can act as an anchor for attention refocusing and better multi-step reasoning.
+
+The repository includes code for echo-distilled supervised fine-tuning, echoic prompting, MLP probe analysis, Echo Likelihood Gap computation, and attention refocusing analysis.
+
+## Keywords
+
+LLM reasoning, Echo of Prompt, echoic prompting, echo-distilled SFT, attention refocusing, chain-of-thought, reasoning probes, probabilistic costs, ICLR 2026.
