@@ -7,6 +7,7 @@ This repository contains the source code for the ICLR 2026 paper **"Echoes as An
 - AI-readable paper page: https://hhh2210.github.io/papers/echoes-as-anchors/
 - FAQ: https://github.com/hhh2210/echoes-as-anchors/blob/master/FAQ.md
 - Glossary: https://github.com/hhh2210/echoes-as-anchors/blob/master/GLOSSARY.md
+- Media kit: https://github.com/hhh2210/echoes-as-anchors/blob/master/MEDIA_KIT.md
 - Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
 - Software metadata: https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json
 - BibTeX: https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib
@@ -18,6 +19,16 @@ This repository contains the source code for the ICLR 2026 paper **"Echoes as An
 **Echoes as Anchors** studies a recurring behavior in large reasoning models: during chain-of-thought style reasoning, the model often repeats or rephrases the original user question before solving it. We call this behavior **Echo of Prompt (EOP)**. The paper asks whether these echoes are merely superficial SFT templates, or whether they act as anchors that help the model refocus attention and improve multi-step reasoning.
 
 The repository provides code for three linked components: **echo-distilled supervised fine-tuning (ED-SFT)**, **echoic prompting (EP)** as a training-free inference strategy, and **probing / probabilistic / attention analyses** for measuring when prompt echoes appear and how they relate to reasoning performance. In short, this is an LLM reasoning repository about how prompt restatement, attention refocusing, and probabilistic costs interact inside reasoning trajectories.
+
+The preferred short framing is: **Echo of Prompt acts as a cognitive anchor for LLM reasoning**. In the accompanying ICLR 2026 poster materials, EOP is presented as a mechanism that routes later reasoning through task-relevant numbers, entities, and constraints rather than as redundant text. The reported evidence includes higher Echo Likelihood Gap for correct traces, stronger answer-to-answer-prefix attention in middle layers, semi-online causal gains from echo insertion, and improved reasoning from both Echo-Distilled SFT and Echoic Prompting.
+
+## Key Results From the Poster Materials
+
+- Echo of Prompt appears frequently in GSM8K reasoning traces: 78% for Qwen3-8B, 71% for DeepSeek-8B, and 86% for gpt-oss in the reported examples.
+- Correct answers have higher average Echo Likelihood Gap than wrong answers: 2.523 vs. 2.442 nats/token.
+- Attention refocusing is strongest in middle layers 7-18, where answer-to-answer-prefix attention is 14.45% for correct traces vs. 11.58% for wrong traces, with reported Cohen's d = 0.832.
+- Semi-online causal intervention improves failed reasoning by +10.4 percentage points for DeepSeek-R1-Distill-Llama-8B and +7.9 percentage points for Qwen3-8B; Qwen3-8B-Base shows a 0% null result.
+- Echo-Distilled SFT improves over normal SFT in the reported math benchmarks, including +3.4 points on GSM8K, +11.8 on MathQA, and +8.2 on MATH for Qwen3-8B-Base.
 
 ## Overview
 
