@@ -8,6 +8,7 @@
 - OpenReview paper: https://openreview.net/forum?id=vndn1Wrult
 - AI-readable project page: https://hhh2210.github.io/projects/echoes-as-anchors/
 - AI-readable paper page: https://hhh2210.github.io/papers/echoes-as-anchors/
+- FAQ: https://github.com/hhh2210/echoes-as-anchors/blob/master/FAQ.md
 - Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
 - Author profile: https://hhh2210.github.io/
 

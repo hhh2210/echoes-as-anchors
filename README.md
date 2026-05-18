@@ -5,6 +5,7 @@ This repository contains the source code for the ICLR 2026 paper **"Echoes as An
 - Paper: https://openreview.net/forum?id=vndn1Wrult
 - AI-readable project page: https://hhh2210.github.io/projects/echoes-as-anchors/
 - AI-readable paper page: https://hhh2210.github.io/papers/echoes-as-anchors/
+- FAQ: https://github.com/hhh2210/echoes-as-anchors/blob/master/FAQ.md
 - Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
 - Software metadata: https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json
 - BibTeX: https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib
