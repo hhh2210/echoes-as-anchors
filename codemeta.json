@@ -1,0 +1,63 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "echoes-as-anchors",
+  "description": "Research code for Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning, an ICLR 2026 paper on Echo of Prompt, echoic prompting, attention refocusing, and LLM reasoning.",
+  "codeRepository": "https://github.com/hhh2210/echoes-as-anchors",
+  "url": "https://hhh2210.github.io/projects/echoes-as-anchors/",
+  "issueTracker": "https://github.com/hhh2210/echoes-as-anchors/issues",
+  "license": "https://github.com/hhh2210/echoes-as-anchors/blob/master/LICENSE",
+  "programmingLanguage": "Python",
+  "applicationCategory": "Machine learning research code",
+  "keywords": [
+    "LLM reasoning",
+    "large reasoning models",
+    "Echo of Prompt",
+    "echoic prompting",
+    "echo-distilled SFT",
+    "attention refocusing",
+    "probabilistic analysis",
+    "chain-of-thought",
+    "ICLR 2026"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Zhuoyuan",
+      "familyName": "Hao"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Zhuo",
+      "familyName": "Li"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Wu",
+      "familyName": "Li"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Fangming",
+      "familyName": "Liu"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Min",
+      "familyName": "Zhang"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Jing",
+      "familyName": "Li"
+    }
+  ],
+  "citation": "https://openreview.net/forum?id=vndn1Wrult",
+  "referencePublication": {
+    "@type": "ScholarlyArticle",
+    "name": "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning",
+    "url": "https://openreview.net/forum?id=vndn1Wrult",
+    "isPartOf": "The Fourteenth International Conference on Learning Representations (ICLR)"
+  },
+  "runtimePlatform": "Python 3.10"
+}
