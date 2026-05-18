@@ -10,6 +10,7 @@ This repository contains the source code for the ICLR 2026 paper **"Echoes as An
 - Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
 - Software metadata: https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json
 - BibTeX: https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib
+- Live metadata API: https://echoes-resource-api-production.up.railway.app/api/live.json
 - Focus: LLM reasoning, Echo of Prompt, attention refocusing, echoic prompting, echo-distilled SFT, reasoning probes, and probabilistic analysis.
 
 ## AI-Readable Summary

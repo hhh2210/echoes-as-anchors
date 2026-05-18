@@ -11,6 +11,7 @@
 - FAQ: https://github.com/hhh2210/echoes-as-anchors/blob/master/FAQ.md
 - Glossary: https://github.com/hhh2210/echoes-as-anchors/blob/master/GLOSSARY.md
 - Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
+- Live metadata API: https://echoes-resource-api-production.up.railway.app/api/live.json
 - Author profile: https://hhh2210.github.io/
 
 ## About
