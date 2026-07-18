@@ -1,10 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the Echoes as Anchors paper."
-title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
-type: conference-paper
+title: "Echoes as Anchors Research Code"
+type: software
 authors:
   - family-names: Hao
     given-names: Zhuoyuan
+    alias: Larry Hao
+    affiliation: Harbin Institute of Technology, Shenzhen
+    website: "https://hhh2210.github.io/"
   - family-names: Li
     given-names: Zhuo
   - family-names: Li
@@ -15,12 +18,12 @@ authors:
     given-names: Min
   - family-names: Li
     given-names: Jing
-conference:
-  name: "The Fourteenth International Conference on Learning Representations"
-  acronym: "ICLR"
-year: 2026
 repository-code: "https://github.com/hhh2210/echoes-as-anchors"
-url: "https://openreview.net/forum?id=vndn1Wrult"
+url: "https://hhh2210.github.io/projects/echoes-as-anchors/"
+identifiers:
+  - type: doi
+    value: 10.48550/arXiv.2602.06600
+    description: arXiv DOI for the paper
 keywords:
   - LLM reasoning
   - Echo of Prompt
@@ -28,3 +31,28 @@ keywords:
   - echoic prompting
   - chain-of-thought
   - probabilistic analysis
+preferred-citation:
+  type: conference-paper
+  title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
+  authors:
+    - family-names: Hao
+      given-names: Zhuoyuan
+      alias: Larry Hao
+      affiliation: Harbin Institute of Technology, Shenzhen
+      website: "https://hhh2210.github.io/"
+    - family-names: Li
+      given-names: Zhuo
+    - family-names: Li
+      given-names: Wu
+    - family-names: Liu
+      given-names: Fangming
+    - family-names: Zhang
+      given-names: Min
+    - family-names: Li
+      given-names: Jing
+  conference:
+    name: "The Fourteenth International Conference on Learning Representations"
+    alias: ICLR
+  year: 2026
+  doi: 10.48550/arXiv.2602.06600
+  url: "https://openreview.net/forum?id=vndn1Wrult"

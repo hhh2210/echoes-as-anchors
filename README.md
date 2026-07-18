@@ -3,6 +3,9 @@
 This repository contains the source code for the ICLR 2026 paper **"Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"**.
 
 - Paper: https://openreview.net/forum?id=vndn1Wrult
+- arXiv: https://arxiv.org/abs/2602.06600
+- DOI: https://doi.org/10.48550/arXiv.2602.06600
+- First-author profile: https://hhh2210.github.io/
 - AI-readable project page: https://hhh2210.github.io/projects/echoes-as-anchors/
 - AI-readable paper page: https://hhh2210.github.io/papers/echoes-as-anchors/
 - FAQ: https://github.com/hhh2210/echoes-as-anchors/blob/master/FAQ.md

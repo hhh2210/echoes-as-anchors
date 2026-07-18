@@ -23,8 +23,21 @@
   "author": [
     {
       "@type": "Person",
+      "@id": "https://hhh2210.github.io/#person",
       "givenName": "Zhuoyuan",
-      "familyName": "Hao"
+      "familyName": "Hao",
+      "alternateName": "Larry Hao",
+      "url": "https://hhh2210.github.io/",
+      "sameAs": [
+        "https://scholar.google.com/citations?user=hjooI9QAAAAJ",
+        "https://openreview.net/profile?id=~Zhuoyuan_Hao1",
+        "https://dblp.org/pid/425/1472.html",
+        "https://openalex.org/A5125425356"
+      ],
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Harbin Institute of Technology, Shenzhen"
+      }
     },
     {
       "@type": "Person",
@@ -52,11 +65,19 @@
       "familyName": "Li"
     }
   ],
-  "citation": "https://openreview.net/forum?id=vndn1Wrult",
+  "citation": [
+    "https://openreview.net/forum?id=vndn1Wrult",
+    "https://doi.org/10.48550/arXiv.2602.06600"
+  ],
   "referencePublication": {
     "@type": "ScholarlyArticle",
     "name": "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning",
     "url": "https://openreview.net/forum?id=vndn1Wrult",
+    "sameAs": [
+      "https://arxiv.org/abs/2602.06600",
+      "https://doi.org/10.48550/arXiv.2602.06600",
+      "https://openalex.org/W7128374376"
+    ],
     "isPartOf": "The Fourteenth International Conference on Learning Representations (ICLR)"
   },
   "runtimePlatform": "Python 3.10"
