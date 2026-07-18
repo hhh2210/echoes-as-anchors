@@ -5,7 +5,6 @@ type: software
 authors:
   - family-names: Hao
     given-names: Zhuoyuan
-    alias: Larry Hao
     affiliation: Harbin Institute of Technology, Shenzhen
     website: "https://hhh2210.github.io/"
   - family-names: Li
@@ -37,7 +36,6 @@ preferred-citation:
   authors:
     - family-names: Hao
       given-names: Zhuoyuan
-      alias: Larry Hao
       affiliation: Harbin Institute of Technology, Shenzhen
       website: "https://hhh2210.github.io/"
     - family-names: Li
