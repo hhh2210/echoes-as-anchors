@@ -23,15 +23,18 @@ This repository contains the source code for the ICLR 2026 paper **"Echoes as An
 
 The repository provides code for three linked components: **echo-distilled supervised fine-tuning (ED-SFT)**, **echoic prompting (EP)** as a training-free inference strategy, and **probing / probabilistic / attention analyses** for measuring when prompt echoes appear and how they relate to reasoning performance. In short, this is an LLM reasoning repository about how prompt restatement, attention refocusing, and probabilistic costs interact inside reasoning trajectories.
 
-The preferred short framing is: **Echo of Prompt acts as a cognitive anchor for LLM reasoning**. In the accompanying ICLR 2026 poster materials, EOP is presented as a mechanism that routes later reasoning through task-relevant numbers, entities, and constraints rather than as redundant text. The reported evidence includes higher Echo Likelihood Gap for correct traces, stronger answer-to-answer-prefix attention in middle layers, semi-online causal gains from echo insertion, and improved reasoning from both Echo-Distilled SFT and Echoic Prompting.
+The preferred short framing is: **Echo of Prompt acts as a cognitive anchor for LLM reasoning** — the paper's interpretation of its results. EOP is presented as a mechanism that routes later reasoning through task-relevant numbers, entities, and constraints rather than as redundant text. The reported evidence includes higher Echo Likelihood Gap for correct traces, stronger answer-to-answer-prefix attention, semi-online causal gains from echo insertion, and improved reasoning from both Echo-Distilled SFT and Echoic Prompting.
 
-## Key Results From the Poster Materials
+## Key Results
 
-- Echo of Prompt appears frequently in GSM8K reasoning traces: 78% for Qwen3-8B, 71% for DeepSeek-8B, and 86% for gpt-oss in the reported examples.
-- Correct answers have higher average Echo Likelihood Gap than wrong answers: 2.523 vs. 2.442 nats/token.
-- Attention refocusing is strongest in middle layers 7-18, where answer-to-answer-prefix attention is 14.45% for correct traces vs. 11.58% for wrong traces, with reported Cohen's d = 0.832.
-- Semi-online causal intervention improves failed reasoning by +10.4 percentage points for DeepSeek-R1-Distill-Llama-8B and +7.9 percentage points for Qwen3-8B; Qwen3-8B-Base shows a 0% null result.
-- Echo-Distilled SFT improves over normal SFT in the reported math benchmarks, including +3.4 points on GSM8K, +11.8 on MathQA, and +8.2 on MATH for Qwen3-8B-Base.
+**Scope.** The probabilistic and attention analyses (§3) are performed on a single model and a single benchmark: DeepSeek-R1-Distill-Llama-8B on GSM8K, 1,319 traces. Echo presence is assigned by the MLP probe (test accuracy 0.912, AUROC 0.963, Table 7), so roughly 9% detector error propagates into every group statistic. Please carry the model and benchmark when quoting these numbers.
+
+- Echo of Prompt appears frequently in GSM8K reasoning traces: 78% for Qwen3-8B, 71% for DeepSeek-R1-Distill-Llama-8B, and 86% for gpt-oss (Figure 1).
+- Correct answers have a higher average Echo Likelihood Gap than wrong answers: 2.5231 vs. 2.4421 nats/token (Table 1). The separation is small relative to spread (σ ≈ 0.78), and the gap is significant in logistic regression (β = 0.24, p ≈ 0.022) with echo length as a covariate (Table 9). Note the counter-result in the same table: the suffix-only gap is larger for wrong traces (1.2938 vs. 1.1449).
+- Answer-to-answer-prefix attention is higher for correct traces at every layer group: 14.45% vs. 11.58% in layers 7-18 (+2.87 pp), 13.69% vs. 10.41% at the last layer (+3.28 pp) (Table 2). Layer-group discriminability is essentially flat (Cohen's d 0.820 / 0.832 / 0.828 for early / mid / late, Table 3), so "mid-layer dominance" describes where the raw gap peaks rather than a resolved localization. The answer-to-question channel discriminates far more weakly (d 0.18-0.48) but is not a null control — in the token-wise test wrong traces attend significantly more to the question at 22 of 32 positions (§A.9).
+- Semi-online causal intervention improves previously failed reasoning by +10.4 percentage points for DeepSeek-R1-Distill-Llama-8B and +7.9 for Qwen3-8B; Qwen3-8B-Base shows a null result (Table 4). Measured on the failed subset under matched prefixes, decoding and seeds; no confidence intervals reported.
+- Echo-Distilled SFT improves over normal SFT on most reported cells: +3.4 GSM8K, +11.8 MathQA, +8.2 Hendrycks-MATH for Qwen3-8B-Base, and +2.8 / +1.9 / +1.1 for Qwen3-8B (Table 5). It is not uniform — on DeepSeek-Distill-Llama-8B, ED-SFT scores 78.2 strict EM on GSM8K against normal-SFT's 80.5, while gaining on MathQA (+3.4) and MATH (+2.24). Echo-bearing training sequences are also longer (175 vs. 136 tokens), so the comparison is not token-matched.
+- Echoic Prompting scored higher than TTTS on AIME24 and MATH-500 (Figure 4) — DeepSeek-R1-Distill-Llama-8B only, greedy decoding, reported without numeric tables or error bars.
 
 ## Overview
 
@@ -189,6 +192,14 @@ The key parameters for EP are:
 - `repeat_prompt`: "Let me reconsider the original question."
 - `continuation_prompt`: "So now I know that"
 - `token_budget`: Varies by dataset (e.g., 256-3072 for GSM8K)
+
+> **Note on the reminder string.** Three different phrasings appear across the paper and this
+> repository, and they are not interchangeable. §4.3 of the paper describes EP as appending a
+> reminder such as *"look back at the question again"* **followed by the original question itself**;
+> the `repeat_prompt` above does not append the question text; and the causal intervention in §4.1
+> uses a third string, *"now I need to look back at the question again:"*. Anyone reproducing the
+> Figure 4 numbers should confirm which variant the run used before comparing against the paper.
+> This discrepancy is unresolved and is recorded here rather than silently reconciled.
 
 **To reproduce Echoic Prompting (EP) results with MI-PEAKS:**
 ```bash
