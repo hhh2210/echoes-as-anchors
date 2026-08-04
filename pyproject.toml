@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "echoes-as-anchors"
+version = "0.1.0"
+description = "Reproducible two-stage Echo of Prompt evaluation adapters"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Zhuoyuan Hao" },
+  { name = "Zhuo Li" },
+  { name = "Wu Li" },
+  { name = "Fangming Liu" },
+  { name = "Min Zhang" },
+  { name = "Jing Li" },
+]
+keywords = ["llm", "reasoning", "lm-evaluation-harness", "interpretability"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+harness = ["lm-eval==0.4.12"]
+hf = ["lm-eval[hf]==0.4.12"]
+vllm = ["lm-eval[vllm]==0.4.12"]
+
+[project.scripts]
+echoes-lm-eval = "echoes_as_anchors.evaluation.two_stage_eval:main"
+
+[project.urls]
+Paper = "https://openreview.net/forum?id=vndn1Wrult"
+Repository = "https://github.com/hhh2210/echoes-as-anchors"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["echoes_as_anchors", "echoes_as_anchors.*"]

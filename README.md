@@ -64,6 +64,38 @@ iclr2026_submission/
 
 ## Setup
 
+### Packaged evaluator
+
+Install only the backend needed for a new run:
+
+```bash
+pip install ".[hf]"     # Transformers/HF backend
+# pip install ".[vllm]" # vLLM backend on a supported CUDA host
+```
+
+The package pins `lm-eval==0.4.12` and installs the `echoes-lm-eval` command.
+The command registers the lazy model aliases `echoes-hf` and `echoes-vllm`
+before calling lm-eval's Python API. The ordinary `lm-eval` executable does not
+auto-discover third-party model packages, so use this command or call
+`register_models()` explicitly in custom Python code.
+
+Build release artifacts with `make dist`. This first creates a source archive
+and then builds the wheel from that archive, so ignored leftovers in the local
+`build/` directory cannot leak legacy `src/` modules into the published wheel.
+
+```bash
+echoes-lm-eval \
+  --config configs/ep_standalone_gsm8k.json \
+  --model-path /path/to/model \
+  --output-dir results/ep-standalone
+```
+
+Every run writes `run_manifest.json` before model loading. It records the exact
+reminder template, token budgets, seed, task, backend, and harness version. The
+bundled protocol ID contains `not-figure4` deliberately: this standalone
+configuration is reproducible, but the unresolved reminder-string discrepancy
+means it must not be presented as a reproduction of Figure 4.
+
 ### 1. Environment
 
 We recommend using Conda to manage the environment.
@@ -211,15 +243,13 @@ bash run_repeat_multi_budget.sh
 ```
 
 **Alternative implementation (included in submission):**
-We also provide a standalone two-stage evaluation script in this repository:
+Use the packaged, manifest-recording evaluator described in Setup:
 
 ```bash
-# Example for two_stage_echo mode
-python src/evaluation/two_stage_eval.py \
-    --model_path /path/to/your/base_model \
-    --tasks gsm8k \
-    --mode two_stage_echo \
-    --output_dir /path/to/your/ep_results
+echoes-lm-eval \
+    --config configs/ep_standalone_gsm8k.json \
+    --model-path /path/to/your/base_model \
+    --output-dir /path/to/your/ep_results
 ```
 
 **To evaluate standard models or fine-tuned checkpoints:**

@@ -16,7 +16,7 @@ deepspeed
 accelerate
 
 # Evaluation Framework
-# lm-eval
+lm-eval==0.4.12
 
 # Math Utilities
 math-verify

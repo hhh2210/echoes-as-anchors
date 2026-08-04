@@ -1,0 +1,11 @@
+{
+  "task": "gsm8k",
+  "mode": "two_stage_echo",
+  "protocol_id": "repo-standalone-v1-not-figure4",
+  "first_stage_tokens": 2048,
+  "second_stage_tokens": 2048,
+  "injection_template": "Look back again: {question}\nSo now I know that ",
+  "continue_template": "",
+  "seed": 0,
+  "backend": "auto"
+}
