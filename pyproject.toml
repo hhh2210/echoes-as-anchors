@@ -28,6 +28,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
+test = ["tomli>=2; python_version < '3.11'"]
 harness = ["lm-eval==0.4.12"]
 hf = ["lm-eval[hf]==0.4.12"]
 vllm = ["lm-eval[vllm]==0.4.12"]
