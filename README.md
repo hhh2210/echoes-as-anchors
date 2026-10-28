@@ -25,6 +25,14 @@ The repository provides code for three linked components: **echo-distilled super
 
 The preferred short framing is: **Echo of Prompt acts as a cognitive anchor for LLM reasoning** — the paper's interpretation of its results. EOP is presented as a mechanism that routes later reasoning through task-relevant numbers, entities, and constraints rather than as redundant text. The reported evidence includes higher Echo Likelihood Gap for correct traces, stronger answer-to-answer-prefix attention, semi-online causal gains from echo insertion, and improved reasoning from both Echo-Distilled SFT and Echoic Prompting.
 
+## Where this fits in LLM reasoning research
+
+- **Large reasoning models and long chain-of-thought.** The paper measures how often long reasoning traces open by restating the question (71-86% of GSM8K traces across three open reasoning models) and tests causally whether that echo matters: re-inserting one into failed traces raises exact match by 10.4 and 7.9 points for DeepSeek-R1-Distill-Llama-8B and Qwen3-8B, and by 0 for the non-reasoning Qwen3-8B-Base.
+- **Test-time compute and thinking tokens.** Echoic Prompting is a training-free, decode-time intervention that re-injects the question into the reasoning trace. Under identical budgets it is compared with thinking-token based test-time scaling (TTTS, Qian et al. 2025), which inserts generic tokens such as "So" and "Hmm", on AIME24 and MATH-500 with DeepSeek-R1-Distill-Llama-8B.
+- **Re-reading and prompt repetition.** RE2 (Xu et al.) and EchoPrompt (Mekala et al.) instruct a model to re-read or rephrase the question in the input. This paper studies the restatements that reasoning models produce on their own inside the trace, and quantifies their likelihood cost (Echo Likelihood Gap). Leviathan et al.'s prompt repetition (Dec 2025), which targets non-reasoning use, is independent work that appeared after this paper was public on OpenReview.
+- **Attention analysis of reasoning traces.** On DeepSeek-R1-Distill-Llama-8B and GSM8K, correct traces show higher answer-to-answer-prefix attention, peaking in middle layers; this is a correlational result, while the reinsertion experiment above is the causal one.
+- **Reasoning SFT data format.** Echo-Distilled SFT adds an echo-then-reason opening to training traces; it improves most reported cells over normal SFT, but not all (see Key Results).
+
 ## Key Results
 
 **Scope.** The probabilistic and attention analyses (§3) are performed on a single model and a single benchmark: DeepSeek-R1-Distill-Llama-8B on GSM8K, 1,319 traces. Echo presence is assigned by the MLP probe (test accuracy 0.912, AUROC 0.963, Table 7), so roughly 9% detector error propagates into every group statistic. Please carry the model and benchmark when quoting these numbers.
